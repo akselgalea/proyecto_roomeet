@@ -1,0 +1,33 @@
+<div class="container form-container">
+    <h2 class="text-center mb-5 g-3">Registro</h2>
+    <form class="row" #register="ngForm" (ngSubmit)="onSubmit(register)">
+        <div class="mb-3">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" class="form-control" ngModel #username="ngModel" name="username" placeholder="Ingrese su nombre de usuario" minlength="6" maxlength="20" required>
+            <div class="text-danger mt-1" *ngIf="username.touched && username.invalid">
+                <p *ngIf="username.errors?.['required']">Campo obligatorio</p>
+                <p *ngIf="username.errors?.['minlength']">Tu nombre de usuario es demasiado corto</p>
+            </div>
+            <div class="text-success mt-1" *ngIf="username.valid">Perfecto!</div>
+        </div>
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" ngModel #email="ngModel" name="email" placeholder="Ingrese su nombre de usuario" required email>
+            <div class="text-danger mt-1" *ngIf="email.touched && email.invalid">
+                <p *ngIf="email.errors?.['required']">Campo obligatorio</p>
+                <p *ngIf="email.errors?.['email']">Ingrese una direccion de correo valida</p>
+            </div>
+            <div class="text-success mt-1" *ngIf="email.valid">Perfecto!</div>
+        </div>
+        <div class="mb-2">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control" ngModel #password="ngModel" name="password" placeholder="Ingrese su contraseña" minlength="8" maxlength="16" required>
+            <div class="text-danger mt-1" *ngIf="password.touched && password.invalid">
+                <p *ngIf="password.errors?.['required']">Campo obligatorio</p>
+                <p *ngIf="password.errors?.['minlength']">Tu contraseña es demasiada corta</p>
+            </div>
+            <div class="text-success mt-1" *ngIf="password.valid">Perfecto!</div>
+        </div>
+        <button [disabled]="register.invalid" class="btn btn-success mt-3 py-2">Registrar</button>
+    </form>
+</div>

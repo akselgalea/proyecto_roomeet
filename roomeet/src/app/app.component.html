@@ -1,0 +1,23 @@
+<nav *ngIf="getStatus();else navNotLogged" class="nav-l">
+    <a [routerLink]="['/publicaciones']" [routerLinkActive]="['active']"><p>Muro de publicaciones</p><i class="far fa-clipboard"></i></a>
+    <a [routerLink]="['/favoritos']" [routerLinkActive]="['active']"><p>Favoritos</p><i class="far fa-heart"></i></a>
+    <a [routerLink]="['/buscar']" [routerLinkActive]="['active']"><p>Buscar Roomie</p><i class="fas fa-search"></i></a>
+    <a [routerLink]="['/chats']" [routerLinkActive]="['active']"><p>Chats</p><i class='far fa-comments'></i></a>
+    <a [routerLink]="['/profile']" [routerLinkActive]="['active']"><p>Mi perfil</p><i class="fas fa-user-alt"></i></a>
+    <a class="logout" (click)="logOut()">Cerrar sesion</a>
+</nav>
+
+<ng-template #navNotLogged>
+    <nav class="nav">
+        <a [routerLink]="['/login']" [routerLinkActive]="['active']">Iniciar sesion</a>
+        <a [routerLink]="['/register']" [routerLinkActive]="['active']">Registrar</a>
+    </nav>
+</ng-template>
+
+<div *ngIf="getStatus(); else notLogged" class="nav-l-activated">
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template #notLogged>
+    <router-outlet></router-outlet>
+</ng-template>

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+footer {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.main {
+    height: calc(100vh - 60px);
+}
+
+*, *::after, *::before { box-sizing: border-box; }
+
+h1, h2, h3, h4, h5 { margin: 0 }

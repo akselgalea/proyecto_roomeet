@@ -1,0 +1,24 @@
+<div class="container form-container">
+    <h2 class="text-center mb-5 g-3">Iniciar sesion</h2>
+    <form class="row" #login="ngForm" (ngSubmit)="onSubmit(login)" novalidate>
+        <div class="mb-2">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" class="form-control" #username="ngModel" name="username" ngModel placeholder="Ingrese su nombre de usuario" minlength="6" maxlength="20" required>
+            <div class="text-danger mt-1" *ngIf="username.touched && username.invalid">
+                <p *ngIf="username.errors?.['required']">Campo obligatorio</p>
+            </div>
+            <div class="text-success mt-1" *ngIf="username.valid">Perfecto!</div>
+        </div>
+        <div>
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control" #password="ngModel" name="password" ngModel placeholder="Ingrese su contraseña" minlength="8" maxlength="16" required>
+            <div class="text-danger mt-1" *ngIf="password.touched && password.invalid">
+                <p *ngIf="username.errors?.['required']">Campo obligatorio</p>
+            </div>
+            <div class="text-success mt-1" *ngIf="password.valid">Perfecto!</div>
+        </div>
+
+        <a class="text-center mt-2" [routerLink]="['/reset-password']" routerLinkActive="active">Has olvidado tu contraseña?</a>
+        <button [disabled]="login.invalid" class="btn btn-success mt-3 py-2">Iniciar sesion</button>
+    </form>
+</div>

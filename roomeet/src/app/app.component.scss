@@ -1,0 +1,106 @@
+html, body {margin: 0}
+
+.nav-l-activated {
+    margin-left: 300px;
+    padding: 0 .5rem;
+}
+
+.nav {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        font-size: 1rem;
+        padding: 1rem 1.75rem;
+        align-items: center;
+        color: black;
+        text-decoration: none;
+    }:hover {
+        color: white;
+        background-color: rgba(3, 148, 245, 0.7)
+    }:first-child {
+        border-bottom-left-radius: 0.25rem;
+    }:last-child {
+        border-bottom-right-radius: 0.25rem;
+    }
+    
+    .active {
+        color: white;
+        background-color: rgba(3, 148, 245, 0.7)
+    }
+}
+
+.nav-l {
+    display: flex;
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    flex-direction: column;
+    background-color: rgb(247, 247, 247);
+    border-right: solid 1px rgba(230, 225, 225, 0.596);
+
+    p {
+        margin: 0;
+    }
+
+    a {
+        font-size: 1rem;
+        padding: 1rem 1.75rem;
+        align-items: center;
+        color: black;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    a:not(:last-child) {
+        border-bottom: 1px solid rgba(230, 225, 225, 0.596);
+    }
+    
+    a:hover {
+        color: white;
+        background-color: rgba(3, 148, 245, 0.7)
+    }
+    
+    .active {
+        color: white;
+        background-color: rgba(3, 148, 245, 0.7)
+    }
+
+    .logout {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    .logout:hover {
+        background-color: rgb(143, 22, 22);
+        cursor: pointer
+    }
+}
+
+@media (max-width: 850px) {
+    .nav-l {
+        width: 100%;
+        height: 40px;
+        bottom: 0;
+        flex-direction: row;
+        justify-content: space-around;
+
+        p, .logout {
+            display: none
+        }
+    }
+    
+    .nav-l-activated {
+        margin-left: 0px;
+        padding: 0 0;
+    }
+}
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+}
