@@ -15,7 +15,7 @@ export interface ILogin {
 
 export interface IResponse {
   status: string,
-  data: any,
+  body: any,
   token: string | ''
 }
 

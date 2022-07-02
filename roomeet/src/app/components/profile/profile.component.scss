@@ -1,0 +1,98 @@
+.config {
+    position: absolute;
+    right: 1rem;
+    top: .5rem;
+    font-size: 1.7rem;
+    color: black
+}
+
+.config:hover {
+    color: rgb(6, 127, 207)
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-weight: 400;
+    text-align: center;
+}
+
+.perfil {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 1rem;
+    min-height: calc(100vh - 60px);
+
+    .presentacion {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        align-items: center;
+        width: 380px;
+        border: 1px solid #333;
+        border-radius: .25rem;
+        padding: 1rem;
+        
+        img {
+            width: 80%;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-evenly;
+            width: 50%;
+            text-align: center;
+            a {
+                font-size: 1.5rem;
+                transition: 200ms
+            }
+
+            a:hover {
+                cursor: pointer;
+                color: rgb(6, 127, 207);
+            }
+        }
+
+        .info {
+            width: 100%;
+            padding: 0 .5rem;
+            cursor: default;
+
+            .pair {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: .5rem 0;
+                i {
+                    margin:0;
+                    font-size: 1.3rem;
+                }
+                h5 {
+                    margin: 0;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    .config {font-size: 1.4rem}
+    .presentacion {width: 350px !important;}
+    .links {
+        a {
+            font-size: 1.5rem !important;
+        }
+    }
+
+    .info h5 {
+        font-size: 1.1rem;
+    }
+}

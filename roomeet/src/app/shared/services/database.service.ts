@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { IResponse } from './auth.service';
 
 export interface IUser {
@@ -28,6 +29,14 @@ export class DatabaseService {
 
   getProfiles(usuario: number) {
     return this.http.post<IResponse>(`${this.apiUrl}search/roomie`, usuario);
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}allUsers`);
+  }
+  
+  getOtherProfile(user_id : number): Observable<IResponse> {
+    return this.http.get<IResponse>(`${this.apiUrl}profile/` + user_id);
   }
 
   getProfile() {

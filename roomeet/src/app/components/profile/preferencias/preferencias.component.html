@@ -1,1 +1,69 @@
-<p>preferencias works!</p>
+<div class="container form-container">
+    <form class="row">
+        <div class="input-group">
+            <div class="input-group-text">Nombre</div>
+            <input type="text" class="form-control" name="nombre" placeholder="nombre">
+        </div>
+        <div class="input-group">
+            <div class="input-group-text">Email</div>
+            <input type="text" class="form-control" name="email" placeholder="email">
+        </div>
+        <div class="input-group">
+            <div class="input-group-text">Ciudad</div>
+            <input type="text" class="form-control" name="ciudad" placeholder="ciudad">
+        </div>
+
+        <fieldset class="row mb-3">
+            <legend class="col-form-label col-12 pt-0">Ocupacion</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ocupacion" id="ocupacion1" value="0" checked>
+                    <label class="form-check-label" for="ocupacion1">
+                        Estudiante
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ocupacion" id="ocupacion2" value="1">
+                    <label class="form-check-label" for="ocupacion2">
+                        Trabajador
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="ocupacion" id="ocupacion3" value="2">
+                    <label class="form-check-label" for="ocupacion3">
+                        Ninguna de las anteriores
+                    </label>
+                </div>
+        </div>
+        </fieldset>
+
+        <fieldset class="row mb-3">
+            <legend class="col-form-label col-12 pt-0">Genero</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexo1" value="0" checked>
+                    <label class="form-check-label" for="sexo1">
+                        Hombre
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="1">
+                    <label class="form-check-label" for="sexo2">
+                        Mujer
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexo3" value="2">
+                    <label class="form-check-label" for="sexo3">
+                        No binario
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="input-group t-area">
+            <div class="input-group-text">Descripcion</div>
+            <textarea class="form-control" maxlength="500" name="descripcion" id="descripcion" cols="30" rows="8"></textarea>
+        </div>
+    </form>
+</div>

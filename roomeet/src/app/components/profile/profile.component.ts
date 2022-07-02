@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { DatabaseService, IUser } from 'src/app/shared/services/database.service';
 
 @Component({
@@ -9,31 +10,23 @@ import { DatabaseService, IUser } from 'src/app/shared/services/database.service
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  usuario : IUser | undefined;
-
+  user$ : any
   constructor(private userService: DatabaseService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.getProfile()
+    this.user$ = this.userService.getProfile()
       .subscribe({
         next(res) {
-          console.log(res)
+          console.log(res.body)
         },
         error(err) {
           if(err instanceof HttpErrorResponse) {
             if(err.status === 401 || err.status === 500) {
-              
+              console.log(err)
             }
           }
         }
-
       });
-      
-      
-  }
-
-  ngOnDestroy() {
-    
   }
 
 }

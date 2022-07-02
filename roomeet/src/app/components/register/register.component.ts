@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService, IRegistro } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService, IRegistro } from 'src/app/shared/services/auth.service';
 })
 
 export class RegisterComponent implements OnInit {
-  constructor(private authSvc : AuthService) { }
+  constructor(private authSvc : AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
       res => {
         console.log(res)
         localStorage.setItem('token', res.token)
+        this.router.navigate(['/profile/preferencias'])
       },
       err => console.log(err)
     );

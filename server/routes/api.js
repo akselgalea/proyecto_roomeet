@@ -21,9 +21,11 @@ function verifyToken(req, res, next) {
     if(!req.headers.authorization) return res.status(401).send('Unauthorized request');
 
     let token = req.headers.authorization.split(' ')[1];
+    console.log(token);
     if(token === 'null') return res.status(401).send('Unauthorized request');
 
     let payload = jwt.verify(token, 'secretKey');
+    console.log(payload);
     if(!payload) return res.status(401).send('Unauthorized request');
 
     req.userId = payload.subject;
@@ -80,5 +82,30 @@ router.get('/profile', verifyToken, (req, res) => {
         }
     })
 })
+
+router.get('/profile/:id', verifyToken, (req, res) => {
+    const query = `SELECT * FROM usuario WHERE id = '${req.params.id}'`;
+
+    connection.query(query, (error, results) => {
+        if(error) {
+            console.log(error)
+        } else {
+            res.send({status: 200, body: results[0]});
+        }
+    })
+})
+
+router.get('/allUsers', verifyToken, (req, res) => {
+    const query = `SELECT * FROM usuario`;
+    
+    connection.query(query, (error, results) => {
+        if(error) {
+            console.log(error)
+        } else {
+            res.send(results);
+        }
+    })
+})
+
 
 module.exports = router

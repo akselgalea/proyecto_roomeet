@@ -12,6 +12,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
+  {path: '', component: MuroComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
@@ -19,12 +20,10 @@ const routes: Routes = [
   {path: 'favoritos', component: FavoritosComponent, canActivate: [AuthGuard]},
   {path: 'chats', component: ChatsComponent, canActivate: [AuthGuard]},
   {path: 'buscar', component: BuscarComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], 
-    children: [
-      {path: 'preferencias', component: PreferenciasComponent}
-    ]
-  },
-  {path: 'roomie/:id', component: ProfileComponent, canActivate: [AuthGuard]}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'profile/preferencias', component: PreferenciasComponent, canActivate: [AuthGuard]},
+  {path: 'roomie/:id', component: ProfileComponent, canActivate: [AuthGuard]},
+
 ];
 
 @NgModule({
